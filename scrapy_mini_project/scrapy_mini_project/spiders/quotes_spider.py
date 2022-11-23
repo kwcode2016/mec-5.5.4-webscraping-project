@@ -23,7 +23,7 @@ class QuotesSpider(scrapy.Spider):
 
 
             # if next page exists, goto the next page and parse it
+            # using response.follow instead of scrapy.Request uses relative url.
             if next_page is not None:
-                next_page = response.urljoin(next_page)
-                yield scrapy.Request(next_page, callback=self.parse)
+                yield response.follow(next_page, callback=self.parse)
 
