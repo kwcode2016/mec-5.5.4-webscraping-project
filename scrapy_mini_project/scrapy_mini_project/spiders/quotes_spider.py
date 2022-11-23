@@ -22,4 +22,3 @@ class QuotesSpider(scrapy.Spider):
                 next_page = response.urljoin(next_page)
                 yield scrapy.Request(next_page, callback=self.parse)
 
-
