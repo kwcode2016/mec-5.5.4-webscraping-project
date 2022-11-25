@@ -2,7 +2,7 @@ import scrapy
 
 
 class QuotesSpider(scrapy.Spider):
-        name = "quotes"
+        name = "quotes_css"
 
 
         def start_requests(self):
@@ -31,7 +31,7 @@ class QuotesSpider(scrapy.Spider):
 
 
 class AuthorSpider(scrapy.Spider):
-        name = 'author'
+        name = 'authors_css'
 
         start_urls = ['http://quotes.toscrape.com/']
 
