@@ -2,7 +2,9 @@ import scrapy
 
 
 class QuotesSpider(scrapy.Spider):
-        name = "quotes_css"
+        # Project Objective: `scrapy crawl toscrape-css -o css-scraper-results.json`
+        # name = "quotes_css"
+        name = "toscrape-css"
 
 
         def start_requests(self):

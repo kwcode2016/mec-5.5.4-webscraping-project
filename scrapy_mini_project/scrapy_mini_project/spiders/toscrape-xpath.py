@@ -2,7 +2,8 @@ import scrapy
 
 
 class QuotesSpider(scrapy.Spider):
-        name = "quotes_css"
+        # Project Objective: `scrapy crawl toscrape-xpath -o xpath-scraper-results.json`
+        name = "toscrape-xpath"
 
 
         def start_requests(self):
@@ -13,11 +14,10 @@ class QuotesSpider(scrapy.Spider):
             yield scrapy.Request(url, self.parse)
 
         def parse(self, response):
-            for quote in response.css('div.quote'):
+            for quote in response.xpath('//*[contains(@class, "quote")]'):
                 yield{
-                    'text': quote.css('span.text::text').get(),
-                    'author': quote.css('small.author::text').get(),
-                    # 'tags': quote.css('div.tags a.tag::text').getall(),
+                    'text': quote.xpath('span[contains(@class, "text")]/text()').extract_first(),
+                    'author': quote.xpath('span/small[contains(@class,"author")]/text()').extract_first(),
                 }
 
             # fetch next page
@@ -31,7 +31,7 @@ class QuotesSpider(scrapy.Spider):
 
 
 class AuthorSpider(scrapy.Spider):
-        name = 'authors_css'
+        name = 'authors_xpath'
 
         start_urls = ['http://quotes.toscrape.com/']
 
