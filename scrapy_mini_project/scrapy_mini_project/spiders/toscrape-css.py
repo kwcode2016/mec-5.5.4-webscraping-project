@@ -3,7 +3,6 @@ import scrapy
 
 class QuotesSpider(scrapy.Spider):
         # Project Objective: `scrapy crawl toscrape-css -o css-scraper-results.json`
-        # name = "quotes_css"
         name = "toscrape-css"
 
 
