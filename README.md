@@ -12,3 +12,10 @@ the 2 output files were created by calling the following commands:
 
 the output files created are:
 (located in mec-5.5.4-webscraping-project/scrapy_mini_project/ )
+
+## BONUS SECTION: Converting JSON file to  SQLITE DB
+For the bonus section, I created the file:
+- json2sqlite.py
+It converts the file xpath-scraper-results.json to quotes.sqlite
+
+now we can use sqlite3 in python to explore the quotes data
